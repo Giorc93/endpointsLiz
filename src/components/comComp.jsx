@@ -4,10 +4,11 @@ const ComComp = () => {
   const [comArr, setComArr] = useState([]);
 
   const getComments = async () => {
-    const data = await fetch("https://jsonplaceholder.typicode.com/comments");
+    const data = await fetch("https://reqres.in/api/users?page=2");
     const comData = await data.json();
 
-    setComArr(comData);
+    console.log(comData);
+    setComArr(comData.data);
   };
 
   useEffect(() => {
@@ -17,33 +18,37 @@ const ComComp = () => {
   return (
     <Fragment>
       <div className="container">
-        <div className="jumbotron jumbotron-fluid">
-          <div className="container">
-            <h2 className="display-4">Comentarios</h2>
-            <p className="lead">
-              Praesent nec metus euismod, laoreet augue faucibus, bibendum
-              tortor. Donec accumsan blandit porttitor. Morbi tempor ultrices
-              nunc non placerat. Duis neque risus, viverra et congue sed,
-              laoreet eu libero. Aenean nibh magna, lacinia sed nisi id,
-              volutpat tristique felis. Nulla eleifend augue in venenatis
-              mollis. Vestibulum bibendum dolor quis rutrum finibus. Maecenas
-              tristique, ligula eget finibus maximus, leo ante tempus nibh,
-              vitae egestas est metus a lorem.
-            </p>
-          </div>
+        <div className="container mt-4 mb-2 ">
+          <h2 className="display-4">Comentarios</h2>
+          <p className="lead">
+            Praesent nec metus euismod, laoreet augue faucibus, bibendum tortor.
+            Donec accumsan blandit porttitor. Morbi tempor ultrices nunc non
+            placerat. Duis neque risus, viverra et congue sed, laoreet eu
+            libero. Aenean nibh magna, lacinia sed nisi id, volutpat tristique
+            felis. Nulla eleifend augue in venenatis mollis. Vestibulum bibendum
+            dolor quis rutrum finibus. Maecenas tristique, ligula eget finibus
+            maximus, leo ante tempus nibh, vitae egestas est metus a lorem.
+          </p>
         </div>
+
         <div>
-          {comArr.slice(0, 10).map((item, index) => {
+          {comArr.slice(0, 6).map((item, index) => {
             return (
-              <div className="media mt-5" key={index}>
+              <div className="media mt-5 rounded-pill" key={index}>
                 <img
-                  src="https://via.placeholder.com/150"
-                  className="mr-3"
-                  alt="..."
+                  className="rounded-circle mr-3 ml-1"
+                  src={item.avatar}
+                  alt=""
                 />
                 <div className="media-body">
-                  <h5 className="mt-0">{item.email} </h5>
-                  {item.body}
+                  <h5 className="mt-2 mb-4 mt-0">
+                    {item.first_name} {item.last_name}
+                  </h5>
+                  Vivamus et lacus vestibulum enim rutrum vestibulum eget sed
+                  enim. Vivamus nec urna pulvinar justo porttitor vestibulum.
+                  Quisque id dui aliquam, tristique mauris non, volutpat dolor.
+                  Curabitur quis fringilla tortor. Sed et dui quis leo feugiat
+                  tincidunt ut ac nibh.
                 </div>
               </div>
             );

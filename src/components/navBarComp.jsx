@@ -5,13 +5,15 @@ import ErrorComp from "./errorComp";
 import HomeComp from "./homeComp";
 import NewUserComp from "./newUserComp";
 import UsersComp from "./usersComp";
+import logo from "../img/user.svg";
 
 const NavBarComp = () => {
   return (
     <Router>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <img className="logo mr-2" src={logo} alt="" />
         <Link className="navbar-brand" to="/home">
-          Usuarios
+          <strong>Agenda</strong>
         </Link>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">

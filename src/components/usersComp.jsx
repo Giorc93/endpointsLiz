@@ -17,28 +17,27 @@ const UsersComp = () => {
   return (
     <Fragment>
       <div className="container">
-        <div className="jumbotron jumbotron-fluid">
-          <div className="container">
-            <h2 className="display-4">Lista de Usuarios</h2>
-          </div>
+        <div className="container mt-4 mb-4">
+          <h2 className="display-4">Lista de Usuarios</h2>
         </div>
-        <table className="table">
-          <thead className="thead-dark">
+
+        <table className="table table-light table-hover">
+          <thead className="nback">
             <tr>
-              <th scope="col">#</th>
               <th scope="col">Usuario</th>
               <th scope="col">Nombre</th>
               <th scope="col">Correo</th>
+              <th scope="col">Página Web</th>
             </tr>
           </thead>
           {users.map((item, index) => {
             return (
               <tbody key={index}>
                 <tr>
-                  <th scope="row">{item.id}</th>
                   <td>{item.username}</td>
                   <td>{item.name}</td>
                   <td>{item.email}</td>
+                  <td>{item.website}</td>
                 </tr>
               </tbody>
             );
